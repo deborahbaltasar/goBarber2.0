@@ -3,11 +3,11 @@ import { useField } from '@unform/core';
 import { Container } from './styles';
 
 
-const Input = ({name, icon: Icon, ...rest}) => {
+const Input = ({name = 'name', icon: Icon, ...rest}) => {
   const inputRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
-  const {fieldName, defaultValue, registerField } = useField(name);
+  const {fieldName, registerField } = useField(name);
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
@@ -18,7 +18,7 @@ const Input = ({name, icon: Icon, ...rest}) => {
 
     setIsFilled(!!inputRef.current?.value);
   }, []);
-  
+
   useEffect(() => {
     registerField({
       name: fieldName,
@@ -33,7 +33,6 @@ const Input = ({name, icon: Icon, ...rest}) => {
       <input
         onFocus={handleInputFocus}
         onBlur={handleInputBlur} 
-        defaultValue={defaultValue} 
         ref={inputRef} 
         {...rest} 
       />
