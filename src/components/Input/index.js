@@ -7,7 +7,7 @@ const Input = ({name = 'name', icon: Icon, ...rest}) => {
   const inputRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
-  const {fieldName, registerField } = useField(name);
+  const {fieldName, error,  registerField } = useField(name);
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
@@ -36,6 +36,7 @@ const Input = ({name = 'name', icon: Icon, ...rest}) => {
         ref={inputRef} 
         {...rest} 
       />
+      {error}
     </Container>
   );
 }
