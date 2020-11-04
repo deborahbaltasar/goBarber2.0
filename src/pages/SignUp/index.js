@@ -22,11 +22,11 @@ function SignUp() {
 				<Form onSubmit={handleSubmit}>
 					<h1>Faça seu cadastro</h1>
 
-					<Input placeholder="Name" icon={FiUser}/>
+					<Input placeholder="Name" name="name" icon={FiUser}/>
 
-					<Input placeholder="Email" icon={FiMail}/>
+					<Input placeholder="Email" name="email" icon={FiMail}/>
 
-					<Input type="password" placeholder="Senha" icon={FiLock} />
+					<Input type="password" name="password" placeholder="Senha" icon={FiLock} />
 
 					<Button type="submit">Cadastrar</Button>
 	
