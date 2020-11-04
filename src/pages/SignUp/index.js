@@ -1,6 +1,7 @@
 import React from 'react';
 import { FiArrowLeft, FiMail, FiLock, FiUser } from 'react-icons/fi';
 import { Form } from '@unform/web';
+import { Link } from 'react-router-dom';
 
 import logoImg from '../../assets/logo.svg';
 
@@ -30,10 +31,10 @@ function SignUp() {
 					<Button type="submit">Cadastrar</Button>
 	
 				</Form>
-				<a href="new-account">
+				<Link to="/">
 					<FiArrowLeft />
 					Voltar para logon
-				</a>
+				</Link>
 			</Content>
 		</Container>
 

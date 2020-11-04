@@ -3,13 +3,13 @@ import { shade } from 'polished';
 
 import signUpBackgroundImg from '../../assets/sign-up-background.png';
 
-export const Container = styled.h1`
+export const Container = styled.div`
   height: 100vh;
   display: flex;
   align-items: stretch;
 `;
 
-export const Content = styled.h1`
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,7 +51,7 @@ export const Content = styled.h1`
 
 `;
 
-export const Background = styled.h1`
+export const Background = styled.div`
   flex: 1;
   background: url(${signUpBackgroundImg}) no-repeat center;
   background-size: cover;
