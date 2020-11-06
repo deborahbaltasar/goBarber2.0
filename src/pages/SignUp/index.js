@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import getValidationErrors from '../../utils/getValidationErrors';
 
-import logoImg from '../../assets/logo.svg';
+import logoVortex from '../../assets/logo-vortex.svg';
 
-import { Container, Content, Background } from './styles';
+import { Container, Content } from './styles';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -15,7 +15,6 @@ import Button from '../../components/Button';
 const SignUp = () => {
 	const formRef = useRef(null);
 
-	console.log(formRef)
 	const handleSubmit = useCallback(async (data) => {
 		try {
 			formRef.current?.setErrors({});
@@ -33,13 +32,17 @@ const SignUp = () => {
 	}, [])
 	return ( 
 		<Container>
-			<Background />
+			
+			<img src={logoVortex} alt="Vortex" />
 			<Content>
-				<img src={logoImg} alt="GoBarber" />
+				<header>
+					<h1>VORTEX</h1>
+					<p>PROGRAMA DE FORMAÇÃO</p>
+				</header>
 				<Form ref={formRef} onSubmit={handleSubmit}>
 					<h1>Faça seu cadastro</h1>
 
-					<Input placeholder="Name" name="name" icon={FiUser}/>
+					<Input placeholder="Nome" name="name" icon={FiUser}/>
 
 					<Input placeholder="Email" name="email" icon={FiMail}/>
 

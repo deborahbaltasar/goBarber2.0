@@ -1,12 +1,34 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
 
-import signInBackgroundImg from '../../assets/sign-in-background.png';
+import signInBackgroundImg from '../../assets/logo-vortex.svg';
+
+const rotate = keyframes`
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+`;
+
 
 export const Container = styled.div`
   height: 100vh;
   display: flex;
   align-items: stretch;
+
+   > img {
+    flex: 1;
+    height: 80vh;
+    transform: rotate(90deg);
+    margin-top: 10vh;
+
+    &:hover {
+      animation: ${rotate} 0.8s linear;
+    }
+    
+  }
 `;
 
 export const Content = styled.div`
@@ -17,6 +39,28 @@ export const Content = styled.div`
 
   width: 100%;
   max-width: 700px;
+
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    h1 {
+    color: #6F4BEF;
+    font-weight: 600;
+    font-size: 88px;
+    font-family: 'Teko' serif,
+    }
+
+    p {
+      color: #FFF;
+      margin-top: -20px;
+      margin-left: 20px;
+      font-weight: 600;
+      font-size: 24px;
+      font-family: 'Rubik' serif,
+    }
+  }
 
   form {
     margin: 80px 0;
@@ -44,7 +88,7 @@ export const Content = styled.div`
   }
 
   > a {
-    color: #ff9000;
+    color: #e30888;
     display: block;
     font-size: 20px;
     text-decoration: none;
@@ -58,7 +102,7 @@ export const Content = styled.div`
     }
 
     &:hover {
-      color: ${shade(0.2, '#ff9000')}
+      color: ${shade(0.2, '#e30888')}
     }
   }
 

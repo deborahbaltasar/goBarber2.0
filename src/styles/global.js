@@ -9,9 +9,9 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #312E38;
+    background: linear-gradient(-0deg, #170d29, #1D1946);
     color: #FFF;
-    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
   }
 
   body, input, button {
