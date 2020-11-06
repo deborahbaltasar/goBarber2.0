@@ -4,12 +4,19 @@ import { BrowserRouter } from 'react-router-dom'
 import GlobalStyle from './styles/global';
 import Routes from './routes';
 
+import {AuthProvider} from './context/AuthContext';
+
 function App() {
+  
+  
   return (
     <>
+      <AuthProvider>
       <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </AuthProvider>
+
       <GlobalStyle />
     </>
     

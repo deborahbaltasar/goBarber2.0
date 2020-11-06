@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { Form } from '@unform/web';
@@ -12,10 +12,13 @@ import { Container, Content } from './styles';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import { AuthContext } from '../../context/AuthContext';
 
 const SignIn = () => {
 	const formRef = useRef(null);
-	
+
+	const { user, signIn } = useContext(AuthContext)
+
 	const handleSubmit = useCallback(async (data) => {
 		try {
 			formRef.current?.setErrors({});
@@ -25,11 +28,17 @@ const SignIn = () => {
 			});
 
 			await schema.validate(data, { abortEarly: false });
+
+			signIn({
+				email: data.email,
+				password: data.password,
+			});
 		} catch (err) {
 			const errors = getValidationErrors(err)
 			formRef.current?.setErrors(errors);
 		}
-	}, [])
+	}, [signIn])
+
 	return (
 		<Container>
 			<Content>
