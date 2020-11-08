@@ -1,10 +1,10 @@
-import React, { createContext, useCallback, useState } from 'react';
+import React, { createContext, useCallback, useState, useContext } from 'react';
 
 import api from '../services/api';
 
-export const AuthContext = createContext({});
+const AuthContext = createContext({});
 
-export const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children }) => {
   const [data, setData] = useState(() => {
     const token = localStorage.getItem('@Voxtex:token');
     const user = localStorage.getItem('@Voxtex:user');
@@ -31,10 +31,29 @@ export const AuthProvider = ({ children }) => {
 
   }, []);
   
+  const signOut = useCallback(() => {
+    localStorage.removeItem('@Voxtex:token');
+    localStorage.removeItem('@Voxtex:user');
+
+    setData({});
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn }}>
+    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );
 }
+
+const useAuth = () => {
+  const context = useContext(AuthContext);
+
+  if(!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+
+  return context;
+}
+
+export { useAuth, AuthProvider };
 
