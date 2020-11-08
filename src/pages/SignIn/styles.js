@@ -35,10 +35,31 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  place-content: center;
+  justify-content: center;
 
   width: 100%;
   max-width: 700px;
+
+`;
+
+const appearFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+export const AnimationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  animation: ${appearFromLeft} 1s;
 
   header {
     display: flex;
@@ -46,10 +67,10 @@ export const Content = styled.div`
     align-items: center;
     
     h1 {
-    color: #6F4BEF;
-    font-weight: 600;
-    font-size: 88px;
-    font-family: 'Teko' serif,
+      color: #6F4BEF;
+      font-weight: 600;
+      font-size: 88px;
+      font-family: 'Teko' serif,
     }
 
     p {
@@ -61,7 +82,6 @@ export const Content = styled.div`
       font-family: 'Rubik' serif,
     }
   }
-
   form {
     margin: 80px 0;
     width: 340px;
@@ -105,7 +125,6 @@ export const Content = styled.div`
       color: ${shade(0.2, '#e30888')}
     }
   }
-
 `;
 
 export const Background = styled.svg`

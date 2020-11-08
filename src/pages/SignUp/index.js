@@ -7,7 +7,7 @@ import getValidationErrors from '../../utils/getValidationErrors';
 
 import logoVortex from '../../assets/logo-vortex.svg';
 
-import { Container, Content } from './styles';
+import { Container, Content, AnimationContainer } from './styles';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -31,30 +31,31 @@ const SignUp = () => {
 		}
 	}, [])
 	return ( 
-		<Container>
-			
+		<Container>	
 			<img src={logoVortex} alt="Vortex" />
 			<Content>
-				<header>
-					<h1>VORTEX</h1>
-					<p>PROGRAMA DE FORMAÇÃO</p>
-				</header>
-				<Form ref={formRef} onSubmit={handleSubmit}>
-					<h1>Faça seu cadastro</h1>
+				<AnimationContainer>
+					<header>
+						<h1>VORTEX</h1>
+						<p>PROGRAMA DE FORMAÇÃO</p>
+					</header>
+					<Form ref={formRef} onSubmit={handleSubmit}>
+						<h1>Faça seu cadastro</h1>
 
-					<Input placeholder="Nome" name="name" icon={FiUser}/>
+						<Input placeholder="Nome" name="name" icon={FiUser}/>
 
-					<Input placeholder="Email" name="email" icon={FiMail}/>
+						<Input placeholder="Email" name="email" icon={FiMail}/>
 
-					<Input type="password" name="password" placeholder="Senha" icon={FiLock} />
+						<Input type="password" name="password" placeholder="Senha" icon={FiLock} />
 
-					<Button type="submit">Cadastrar</Button>
-	
-				</Form>
-				<Link to="/">
-					<FiArrowLeft />
-					Voltar para logon
-				</Link>
+						<Button type="submit">Cadastrar</Button>
+		
+					</Form>
+					<Link to="/">
+						<FiArrowLeft />
+						Voltar para logon
+					</Link>
+				</AnimationContainer>
 			</Content>
 		</Container>
 
