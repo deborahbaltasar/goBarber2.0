@@ -1,11 +1,13 @@
 import React from 'react';
 
 
-import { Title } from './styles';
+import { Title, Container } from './styles';
 
 function Dashboard() {
   return (
-    <Title>Dashboard</Title>
+    <Container>
+      <Title>Dashboard</Title>
+    </Container>
   );
 }
 
