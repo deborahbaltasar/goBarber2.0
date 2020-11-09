@@ -26,7 +26,7 @@ const Toast = ({ message, style }) => {
   }, [removeToast, message.id]);
 
   return (
-    <Container message={message.type} type={message.type} hasDescription={!!message.description} style={style}>
+    <Container message={message.type} type={message.type} hasdescription={(!!message.description).toString()} style={style}>
       {icons[message.type || 'info']}
 
       <div>
